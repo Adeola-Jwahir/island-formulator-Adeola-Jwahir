@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resource :session
+  resources :users, only: [:new, :create]
+  resources :passwords, param: :token
   resources :ingredients
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,4 +15,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root "ingredients#index"
 end
