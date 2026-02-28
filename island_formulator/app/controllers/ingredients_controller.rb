@@ -65,6 +65,6 @@ class IngredientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ingredient_params
-      params.expect(ingredient: [ :name, :category, :description, :notes, tag_ids: [] ])
+      params.expect(ingredient: [ :name, :category, :description, :photo, :notes, tag_ids: [] ])
     end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :recipes
   resource :session
   resources :users, only: [:new, :create]
   resources :passwords, param: :token
