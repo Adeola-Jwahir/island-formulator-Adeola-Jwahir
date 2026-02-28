@@ -2,6 +2,8 @@ class Recipe < ApplicationRecord
   belongs_to :user
   
   has_one_attached :photo
+
+  has_many :batches, dependent: :destroy
   
   # A recipe has many rows in the join table
   has_many :recipe_ingredients, dependent: :destroy
