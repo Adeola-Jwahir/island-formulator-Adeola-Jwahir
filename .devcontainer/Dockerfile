@@ -35,6 +35,8 @@ RUN gem install rake
 
 RUN gem install rails -v 8.1.2
 
+RUN gem install foreman
+
 RUN apt update && apt install -y postgresql-common
 RUN /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
 
