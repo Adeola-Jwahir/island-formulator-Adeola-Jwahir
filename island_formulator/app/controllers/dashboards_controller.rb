@@ -1,4 +1,6 @@
 class DashboardsController < ApplicationController
+  before_action :require_authentication  # Add this line
+
   def show
     @recent_recipes = current_user.recipes.order(created_at: :desc).limit(5)
     @recent_batches = current_user.batches.includes(:recipe).order(made_on: :desc).limit(5)
