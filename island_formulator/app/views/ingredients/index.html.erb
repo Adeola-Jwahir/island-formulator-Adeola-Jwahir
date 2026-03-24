@@ -13,7 +13,17 @@
             <%= ingredient.category %>
           </span>
         </div>
-        <h2 class="text-xl font-bold text-gray-800 mb-2"><%= ingredient.name %></h2>
+        
+        <%# Heart icon goes right here - next to the name %>
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-bold text-gray-800 mb-2">
+            <%= ingredient.name %>
+            <% if ingredient.favorite %>
+              <span class="text-red-500">❤️</span>
+            <% end %>
+          </h2>
+        </div>
+        
         <p class="text-gray-600 line-clamp-3 mb-4"><%= ingredient.description %></p>
         
         <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
