@@ -14,14 +14,14 @@
           </span>
         </div>
 
-        <% if ingredient.cost.present? %>
-         <p class="text-sm text-gray-600 mt-1">
-          💰 $<%= sprintf("%.2f", ingredient.cost) %>
-       <% if ingredient.unit.present? %>
-          for <%= ingredient.unit %>
-       <% end %>
-         </p>
-      <% end %>
+        <% if ingredient.respond_to?(:cost) && ingredient.cost.present? %>
+  <p class="text-sm text-gray-600 mt-1">
+    💰 $<%= sprintf("%.2f", ingredient.cost) %>
+    <% if ingredient.respond_to?(:unit) && ingredient.unit.present? %>
+      for <%= ingredient.unit %>
+    <% end %>
+  </p>
+<% end %>
 
         <%# Heart icon goes right here - next to the name %>
         <div class="flex items-center justify-between">
