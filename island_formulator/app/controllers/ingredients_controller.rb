@@ -66,7 +66,7 @@ class IngredientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ingredient_params
-      params.require(:ingredient).permit(:name, :category, :description, :photo, :notes, :favorite, tag_ids: [])
+      params.require(:ingredient).permit(:name, :category, :description, :photo, :notes, :favorite, :cost, tag_ids: [])
       # Changed from params.expect to params.require, and removed :photo from permit if you're using Active Storage
     end
 end

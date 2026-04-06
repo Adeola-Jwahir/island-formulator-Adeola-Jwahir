@@ -7,13 +7,25 @@
     <h1 class="text-3xl font-bold mb-2"><%= @ingredient.name %></h1>
     <p class="text-gray-600 mb-4"><%= @ingredient.category %></p>
     
+    <% if @ingredient.cost.present? %>
+      <div class="mb-4 p-3 bg-white-400 rounded-lg">
+        <p class="text-black-500 uppercase text-xs font-bold mb-1">Cost</p>
+        <p class="text-black-800 font-medium">
+          $<%= sprintf("%.2f", @ingredient.cost) %>
+          <% if @ingredient.unit.present? %>
+            for <%= @ingredient.unit %>
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+    
     <div class="mb-6">
       <h2 class="font-bold text-gray-700 uppercase text-xs tracking-wider mb-2">Description</h2>
       <p class="text-gray-800"><%= @ingredient.description %></p>
     </div>
 
     <div class="flex space-x-2">
-      <%= link_to 'Edit', edit_ingredient_path(@ingredient), class: "bg-blue-500 text-white px-4 py-2 rounded" %>
+      <%= link_to 'Edit', edit_ingredient_path(@ingredient), class: "bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700" %>
       <%= link_to 'Back', ingredients_path, class: "text-gray-500 py-2" %>
     </div>
   </div>
